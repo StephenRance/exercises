@@ -1,3 +1,4 @@
 import getExercises from './getExercises/getExercises';
+import getFilters from './getFilters/getFilters';
 
-export { getExercises };
+export { getExercises, getFilters };
