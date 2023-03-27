@@ -9,6 +9,13 @@ const Home = () => (
       <meta content="width=device-width, initial-scale=1" name="viewport" />
 
       <link href="/favicon.png" rel="icon" />
+      <link
+        as="font"
+        crossOrigin="anonymous"
+        href="/fonts/roboto-regular.woff2"
+        rel="preload"
+        type="font/woff2"
+      />
     </Head>
 
     <main></main>
