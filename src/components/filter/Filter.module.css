@@ -1,0 +1,10 @@
+.filter {
+  padding-bottom: var(--space-theta);
+  padding-left: var(--space-iota);
+  padding-right: var(--space-iota);
+  width: 50%;
+
+  & > * {
+    width: 100%;
+  }
+}
