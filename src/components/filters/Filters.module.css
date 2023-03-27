@@ -1,0 +1,20 @@
+.filters {
+  background: var(--color-secondary);
+  border-bottom: var(--color-light-grey-senary) solid 1px;
+  display: flex;
+  flex-shrink: 0;
+  left: 0;
+  list-style: none;
+  overflow-x: auto;
+  padding: var(--space-zeta) var(--space-eta) var(--space-theta);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 3;
+
+  @media (min-width: 800px) {
+    border-right: var(--color-light-grey-senary) solid 1px;
+    flex-wrap: wrap;
+    max-width: 300px;
+  }
+}

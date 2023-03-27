@@ -1,4 +1,4 @@
-import { Header, Main } from '@/components';
+import { Filters, Header, Main } from '@/components';
 import Head from 'next/head';
 
 const Home = () => (
@@ -28,7 +28,9 @@ const Home = () => (
 
     <Header />
 
-    <Main></Main>
+    <Main>
+      <Filters></Filters>
+    </Main>
   </>
 );
 

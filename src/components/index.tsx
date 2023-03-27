@@ -1,4 +1,5 @@
+import Filters from './filters/Filters';
 import Header from './header/Header';
 import Main from './main/Main';
 
-export { Header, Main };
+export { Filters, Header, Main };
