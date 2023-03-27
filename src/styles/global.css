@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  &,
+  &:before,
+  &:after {
+    box-sizing: inherit;
+  }
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  display: flex;
+  font-family: var(--font-primary);
+  font-size: var(--size-zeta);
+  line-height: 1.333;
+}
+
+#__next {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}

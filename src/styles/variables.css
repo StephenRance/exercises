@@ -1,0 +1,40 @@
+:root {
+  --color-error-primary: #d54537;
+  --color-error-secondary: #bf2e35;
+
+  --color-light-grey-primary: #444;
+  --color-light-grey-secondary: #53565a;
+  --color-light-grey-tertiary: #6e6e6e;
+  --color-light-grey-quaternary: #bbbcbc;
+  --color-light-grey-senary: #e7e7e7;
+  --color-light-grey-septenary: #ebebeb;
+  --color-light-grey-octonary: #f5f5f5;
+
+  --color-primary: #000;
+  --color-secondary: #fff;
+  --color-tertiary: #007db5;
+  --color-quaternary: #0272a9;
+  --color-quinary: #dc679c;
+
+  --font-primary: Roboto, Helvetica, Arial, sans-serif;
+  --font-secondary: Montserrat, Helvetica, Arial, sans-serif;
+
+  --size-alpha: 8.417rem;
+  --size-beta: 6.315rem;
+  --size-gamma: 4.737rem;
+  --size-delta: 3.554rem;
+  --size-epsilon: 2.666rem;
+  --size-zeta: 2rem;
+  --size-eta: 1.5rem;
+  --size-theta: 1.126rem;
+
+  --space-alpha: 12rem;
+  --space-beta: 8rem;
+  --space-gamma: 6rem;
+  --space-delta: 4rem;
+  --space-epsilon: 3rem;
+  --space-zeta: 2rem;
+  --space-eta: 1.5rem;
+  --space-theta: 1rem;
+  --space-iota: 0.5rem;
+}
