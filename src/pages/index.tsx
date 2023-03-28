@@ -1,3 +1,4 @@
+import { Main } from '@/components';
 import Head from 'next/head';
 
 const Home = () => (
@@ -25,7 +26,7 @@ const Home = () => (
       />
     </Head>
 
-    <main></main>
+    <Main></Main>
   </>
 );
 
