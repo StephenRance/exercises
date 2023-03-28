@@ -1,4 +1,4 @@
-import { Main } from '@/components';
+import { Header, Main } from '@/components';
 import Head from 'next/head';
 
 const Home = () => (
@@ -25,6 +25,8 @@ const Home = () => (
         type="font/woff2"
       />
     </Head>
+
+    <Header />
 
     <Main></Main>
   </>
