@@ -1,0 +1,24 @@
+.error {
+  flex-grow: 1;
+  padding: var(--space-zeta);
+
+  p {
+    margin-bottom: var(--space-eta);
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__container {
+    max-width: 640px;
+  }
+
+  &__heading {
+    font-family: var(--font-secondary);
+    font-size: var(--size-delta);
+    font-weight: 700;
+    margin-bottom: var(--space-eta);
+    text-transform: uppercase;
+  }
+}
