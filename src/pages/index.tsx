@@ -62,13 +62,6 @@ const Home = ({ exercises, filters }: Props) => {
         <link
           as="font"
           crossOrigin="anonymous"
-          href="/fonts/roboto-bold.woff2"
-          rel="preload"
-          type="font/woff2"
-        />
-        <link
-          as="font"
-          crossOrigin="anonymous"
           href="/fonts/roboto-regular.woff2"
           rel="preload"
           type="font/woff2"
