@@ -16,5 +16,7 @@
     border-right: var(--color-light-grey-senary) solid 1px;
     flex-wrap: wrap;
     max-width: 300px;
+    padding-bottom: var(--space-epsilon);
+    padding-top: var(--space-delta);
   }
 }

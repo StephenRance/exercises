@@ -3,6 +3,8 @@
   flex-grow: 1;
   flex-wrap: wrap;
   justify-content: center;
+  padding-bottom: var(--space-zeta);
+  padding-top: var(--space-zeta);
 
   @media (min-width: 540px) {
     justify-content: flex-start;
