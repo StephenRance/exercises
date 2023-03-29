@@ -28,6 +28,7 @@ const Card = ({ female, male, name, ...props }: Props) => {
               isActive={gender === 'male'}
               label="Male"
               onClick={() => setGender('male')}
+              type="button"
               variant="thin"
             />
           </li>
@@ -37,6 +38,7 @@ const Card = ({ female, male, name, ...props }: Props) => {
               isActive={gender === 'female'}
               label="Female"
               onClick={() => setGender('female')}
+              type="button"
               variant="thin"
             />
           </li>

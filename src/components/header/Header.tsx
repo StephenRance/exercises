@@ -18,7 +18,6 @@ const Header = ({ ...props }: Props) => {
             className={styles.header__logo__img}
             fill={true}
             priority
-            role="logo"
             src="/logo.svg"
             unoptimized
           />

@@ -68,10 +68,10 @@ const Home = ({ exercises, filters }: Props) => {
         />
       </Head>
 
-      <Header role="banner" />
+      <Header />
 
       <Main>
-        <Filters aria-label="Exercise filters">
+        <Filters aria-label="Exercise filters" role="listbox">
           {!errorEnabled &&
             filters.map((filter, i) => {
               const isActive = appliedFilters.includes(filter);
@@ -84,6 +84,8 @@ const Home = ({ exercises, filters }: Props) => {
                     isActive={isActive}
                     label={filter}
                     onClick={() => toggleFilters(filter)}
+                    role="option"
+                    type="button"
                   />
                 </Filter>
               );
@@ -96,6 +98,7 @@ const Home = ({ exercises, filters }: Props) => {
                 label="Reload"
                 onClick={() => window.location.reload()}
                 theme="error"
+                type="button"
               />
             </Filter>
           )}
@@ -107,11 +110,12 @@ const Home = ({ exercises, filters }: Props) => {
               label="Reset"
               onClick={() => setAppliedFilters([])}
               theme="secondary"
+              type="button"
             />
           </Filter>
         </Filters>
 
-        <Exercises aria-label="Exercise results">
+        <Exercises>
           {noResults && <Error role="alert" />}
 
           {!noResults &&
