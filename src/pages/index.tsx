@@ -1,6 +1,7 @@
 import {
   Button,
   Card,
+  Error,
   Exercises,
   Filter,
   Filters,
@@ -27,7 +28,10 @@ const Home = ({ exercises, filters }: Props) => {
   const [firstRender, setFirstRender] = useState(true);
   const [results, setResults] = useState<ExerciseProps[]>(exercises);
 
+  const noResults = !results.length;
   const noFilters = !filters.length;
+
+  const errorEnabled = noFilters || !exercises.length;
   const resetDisabled = exercises.length === results.length || noFilters;
 
   const toggleFilters = async (query: FilterProps) => {
@@ -75,15 +79,26 @@ const Home = ({ exercises, filters }: Props) => {
 
       <Main>
         <Filters>
-          {filters.map((filter, i) => (
-            <Filter key={i}>
+          {!errorEnabled &&
+            filters.map((filter, i) => (
+              <Filter key={i}>
+                <Button
+                  isActive={appliedFilters.includes(filter)}
+                  label={filter}
+                  onClick={() => toggleFilters(filter)}
+                />
+              </Filter>
+            ))}
+
+          {errorEnabled && (
+            <Filter>
               <Button
-                isActive={appliedFilters.includes(filter)}
-                label={filter}
-                onClick={() => toggleFilters(filter)}
+                label="Reload"
+                onClick={() => window.location.reload()}
+                theme="error"
               />
             </Filter>
-          ))}
+          )}
 
           <Filter>
             <Button
@@ -96,14 +111,17 @@ const Home = ({ exercises, filters }: Props) => {
         </Filters>
 
         <Exercises>
-          {results.map((result, i) => (
-            <Card
-              key={i}
-              female={result.female.image}
-              male={result.male.image}
-              name={result.name}
-            />
-          ))}
+          {noResults && <Error />}
+
+          {!noResults &&
+            results.map((result, i) => (
+              <Card
+                key={i}
+                female={result.female.image}
+                male={result.male.image}
+                name={result.name}
+              />
+            ))}
         </Exercises>
       </Main>
     </>
