@@ -27,6 +27,9 @@ const Home = ({ exercises, filters }: Props) => {
   const [firstRender, setFirstRender] = useState(true);
   const [results, setResults] = useState<ExerciseProps[]>(exercises);
 
+  const noFilters = !filters.length;
+  const resetDisabled = exercises.length === results.length || noFilters;
+
   const toggleFilters = async (query: FilterProps) => {
     if (appliedFilters && appliedFilters.includes(query)) {
       return setAppliedFilters(appliedFilters.filter((item) => item !== query));
@@ -81,6 +84,15 @@ const Home = ({ exercises, filters }: Props) => {
               />
             </Filter>
           ))}
+
+          <Filter>
+            <Button
+              disabled={resetDisabled}
+              label="Reset"
+              onClick={() => setAppliedFilters([])}
+              theme="secondary"
+            />
+          </Filter>
         </Filters>
 
         <Exercises>
