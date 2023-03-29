@@ -129,15 +129,17 @@ const Home = ({ exercises, filters }: Props) => {
   );
 };
 
-Home.getInitialProps = async () => {
+export const getServerSideProps = async () => {
   let exercises = await getExercises();
   exercises = await replaceImages(exercises);
 
   const filters = await getFilters(exercises);
 
   return {
-    exercises,
-    filters,
+    props: {
+      exercises,
+      filters,
+    },
   };
 };
 
