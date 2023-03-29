@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+## Production link
+
+[https://exercises-stephenrance.vercel.app/](https://exercises-stephenrance.vercel.app/)
+
 ## Getting Started
 
 First, run the development server:
@@ -14,25 +18,32 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Running the tests
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run test
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Pushing to `origin` automatically deploys the build to the [production link](https://exercises-stephenrance.vercel.app/) via Vercel.
 
-## Learn More
+## Missing
 
-To learn more about Next.js, take a look at the following resources:
+A list of things that were missed:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- A number of tests for one or two components.
+- Tests for the `index.tsx` page bringing everything together.
+- Showing the `transcript` when selecting an exercise.
+- Sufficient documentation (e.g. comments).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## To-do
 
-## Deploy on Vercel
+A list of things that could be improved:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Animations and transitions (images fading, loading state, etc).
+- Application congfiguration files could be better (Jest, React Test Library, etc)?
+- Data fetched on page load is quite large, and the image replacement logic is fairly expensive.
+- General page performance needs improvement - [GTmetrix result](https://gtmetrix.com/reports/exercises-stephenrance.vercel.app/lGFVJla1/).
+- More and/or better `aria` and `role` attributes.
+- Typing could be better?
