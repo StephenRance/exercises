@@ -75,24 +75,31 @@ const Home = ({ exercises, filters }: Props) => {
         />
       </Head>
 
-      <Header />
+      <Header role="banner" />
 
       <Main>
-        <Filters>
+        <Filters aria-label="Exercise filters">
           {!errorEnabled &&
-            filters.map((filter, i) => (
-              <Filter key={i}>
-                <Button
-                  isActive={appliedFilters.includes(filter)}
-                  label={filter}
-                  onClick={() => toggleFilters(filter)}
-                />
-              </Filter>
-            ))}
+            filters.map((filter, i) => {
+              const isActive = appliedFilters.includes(filter);
+
+              return (
+                <Filter key={i}>
+                  <Button
+                    aria-label={`Select the ${filter} filter`}
+                    aria-selected={isActive}
+                    isActive={isActive}
+                    label={filter}
+                    onClick={() => toggleFilters(filter)}
+                  />
+                </Filter>
+              );
+            })}
 
           {errorEnabled && (
             <Filter>
               <Button
+                aria-label="Reload the current page and try again"
                 label="Reload"
                 onClick={() => window.location.reload()}
                 theme="error"
@@ -102,6 +109,7 @@ const Home = ({ exercises, filters }: Props) => {
 
           <Filter>
             <Button
+              aria-label="Reset the filters you currently have selected"
               disabled={resetDisabled}
               label="Reset"
               onClick={() => setAppliedFilters([])}
@@ -110,8 +118,8 @@ const Home = ({ exercises, filters }: Props) => {
           </Filter>
         </Filters>
 
-        <Exercises>
-          {noResults && <Error />}
+        <Exercises aria-label="Exercise results">
+          {noResults && <Error role="alert" />}
 
           {!noResults &&
             results.map((result, i) => (
