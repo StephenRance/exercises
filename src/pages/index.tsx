@@ -1,13 +1,48 @@
-import { Button, Filter, Filters, Header, Main } from '@/components';
-import { BodyArea as FilterProps } from '@/types';
-import { getExercises, getFilters, replaceImages } from '@/utils';
+import {
+  Button,
+  Card,
+  Exercises,
+  Filter,
+  Filters,
+  Header,
+  Main,
+} from '@/components';
+import { BodyArea as FilterProps, Exercise as ExerciseProps } from '@/types';
+import {
+  filterExercises,
+  getExercises,
+  getFilters,
+  replaceImages,
+} from '@/utils';
 import Head from 'next/head';
+import { useEffect, useState } from 'react';
 
 type Props = {
+  exercises: ExerciseProps[];
   filters: FilterProps[];
 };
 
-const Home = ({ filters }: Props) => {
+const Home = ({ exercises, filters }: Props) => {
+  const [appliedFilters, setAppliedFilters] = useState<FilterProps[]>([]);
+  const [firstRender, setFirstRender] = useState(true);
+  const [results, setResults] = useState<ExerciseProps[]>(exercises);
+
+  const toggleFilters = async (query: FilterProps) => {
+    if (appliedFilters && appliedFilters.includes(query)) {
+      return setAppliedFilters(appliedFilters.filter((item) => item !== query));
+    }
+
+    return setAppliedFilters([...appliedFilters, query]);
+  };
+
+  useEffect(() => {
+    if (firstRender) {
+      return setFirstRender(false);
+    }
+
+    setResults(filterExercises(appliedFilters, exercises));
+  }, [appliedFilters]);
+
   return (
     <>
       <Head>
@@ -39,10 +74,25 @@ const Home = ({ filters }: Props) => {
         <Filters>
           {filters.map((filter, i) => (
             <Filter key={i}>
-              <Button label={filter} />
+              <Button
+                isActive={appliedFilters.includes(filter)}
+                label={filter}
+                onClick={() => toggleFilters(filter)}
+              />
             </Filter>
           ))}
         </Filters>
+
+        <Exercises>
+          {results.map((result, i) => (
+            <Card
+              key={i}
+              female={result.female.image}
+              male={result.male.image}
+              name={result.name}
+            />
+          ))}
+        </Exercises>
       </Main>
     </>
   );
@@ -55,6 +105,7 @@ Home.getInitialProps = async () => {
   const filters = await getFilters(exercises);
 
   return {
+    exercises,
     filters,
   };
 };
